@@ -142,7 +142,7 @@ class DialogService {
   Future<DialogResponse> showCustomDialog({
     dynamic variant,
     String title,
-    String description,
+    Widget description,
     bool hasImage = false,
     String imageUrl,
     bool showIconInMainButton = false,
@@ -154,7 +154,6 @@ class DialogService {
     bool takesInput = false,
     Color barrierColor = Colors.black54,
     bool barrierDismissible = false,
-    String barrierLabel = '',
     dynamic customData,
   }) {
     // TODO: Remove the _customDialogUI in the next release
@@ -172,7 +171,6 @@ class DialogService {
       barrierColor: barrierColor,
       transitionDuration: const Duration(milliseconds: 200),
       barrierDismissible: barrierDismissible,
-      barrierLabel: barrierLabel,
       useRootNavigator: true,
       pageBuilder: (BuildContext buildContext, _, __) => SafeArea(
         child: Builder(
@@ -262,7 +260,7 @@ class DialogRequest {
   final String title;
 
   /// Text so show in the dialog body
-  final String description;
+  final Widget description;
 
   /// Indicates if an image should be used or not
   final bool hasImage;
